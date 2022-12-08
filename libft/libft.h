@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:14:03 by avan-and          #+#    #+#             */
-/*   Updated: 2022/12/07 14:27:42 by albertvanan      ###   ########.fr       */
+/*   Updated: 2022/12/08 22:33:19 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	*ft_calloc(size_t count, size_t size);
 // NUMBER FUNCTIONS
 
 int		ft_atoi(const char *str);
+long	ft_atoli(const char *str);
 char	*ft_itoa(int n);
 char	*ft_llitoa(long long int n);
 char	*ft_uitoa_base(unsigned long long n, char *base);
