@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:17:10 by albertvanan       #+#    #+#             */
-/*   Updated: 2022/12/27 01:08:07 by albertvanan      ###   ########.fr       */
+/*   Updated: 2022/12/27 23:39:31 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@
 # define RRA 9
 # define RRB 10
 # define RRR 11
-# define PRINT_ERROR ft_printf("Error\n")
+# define MEM_ERR "Memory error\n"
+# define INPUT_ERR "Input error\n"
 
 typedef struct s_stack{
 	int				nbr;

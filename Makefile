@@ -13,7 +13,7 @@ CCFLAGS				=	-Wall -Werror -Wextra
 
 NAME				=	push_swap
 GENERATOR			=	generator
-ENTRIES				=	100
+ENTRIES				=	10
 LIBDIR				=	sources/libft
 LIB					=	$(LIBDIR)/libft.a
 
@@ -33,7 +33,8 @@ fclean				: clean
 re					: fclean all
 
 run					: $(NAME) $(GENERATOR)
-					./$(NAME) 2 1 3 6 5 8
+					$(eval ARG=$(shell ./$(GENERATOR) $(ENTRIES)))
+					./$(NAME) $(ARG)
 
 $(NAME)				: $(PUSH_SWAP_OBJS) $(LIB)
 					$(CC) $(CCFLAGS) $(PUSH_SWAP_OBJS) $(LIB) -o $(NAME)

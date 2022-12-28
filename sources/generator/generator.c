@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:32:00 by albertvanan       #+#    #+#             */
-/*   Updated: 2022/12/27 22:26:57 by albertvanan      ###   ########.fr       */
+/*   Updated: 2022/12/28 10:26:23 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,11 @@ int	main(int argc, char **argv)
 		return (0);
 	while (i < val)
 	{
-		current = rand() % val;
+		current = rand() % (val * 2) - (val / 2);
 		if (!check_doubles(random_numbers, i, current))
 		{
-			random_numbers[i] = current;
+			random_numbers[i++] = current;
 			ft_printf("%i ", current);
-			i++;
 		}
 	}
-	// ft_printf("\nchunks %i\n", ft_round((float)val / 55 + 2));
 }
