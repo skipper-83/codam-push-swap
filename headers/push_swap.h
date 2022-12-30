@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:17:10 by albertvanan       #+#    #+#             */
-/*   Updated: 2022/12/30 17:09:05 by albertvanan      ###   ########.fr       */
+/*   Updated: 2022/12/31 00:14:54 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_stacks_data
 	int		*chunks;
 	int		chunk_count;
 	int		small_on_top;
+	int		small_on_bottom;
 	int		big_on_top;
 	int		amount_done;
 	int		cur_chunk;

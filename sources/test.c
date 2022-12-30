@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:53:52 by albertvanan       #+#    #+#             */
-/*   Updated: 2022/12/30 17:10:37 by albertvanan      ###   ########.fr       */
+/*   Updated: 2022/12/31 00:50:08 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,8 @@ int	define_chunks(t_stacks_data *sd, int *nmbrs)
 	int	end;
 	int	i;
 
-	// sd->chunk_count = ft_round((float)sd->length / 55 + 2);
-	sd->chunk_count = 3;
+	sd->chunk_count = ft_round((float)sd->length / 55 + 2);
+	// sd->chunk_count = 6;
 	sd->chunks = malloc(sizeof(int) * sd->chunk_count * 2);
 	if (sd->chunks == NULL)
 		return (0);
@@ -140,8 +140,8 @@ int	define_chunks(t_stacks_data *sd, int *nmbrs)
 			end = ((sd->length / sd->chunk_count) * (i + 1) - 1);
 		sd->chunks[i * 2] = nmbrs[start];
 		sd->chunks[(i * 2) + 1] = nmbrs[end];
-		ft_printf("%i: start %i end %i: %i -> %i -- %i:%i\n", i, start, end, \
-		nmbrs[start], nmbrs[end], sd->chunks[i * 2], sd->chunks[i * 2 + 1]);
+		// ft_printf("%i: start %i end %i: %i -> %i -- %i:%i\n", i, start, end, 
+		// nmbrs[start], nmbrs[end], sd->chunks[i * 2], sd->chunks[i * 2 + 1]);
 		i++;
 	}
 	return (1);
@@ -285,7 +285,10 @@ int	push_next_candidate(t_stacks_data *sd)
 		return (0);
 	sd->amount_done++;
 	if (operation == SMALLEST_TOP || operation == SMALLEST_BOTTOM)
+	{
 		sd->small_on_top = 1;
+		sd->small_on_bottom++;
+	}
 	if (operation == BIGGEST_TOP || operation == BIGGEST_BOTTOM)
 		sd->big_on_top++;
 	// print_stacks(sd);
@@ -311,14 +314,24 @@ int	sort_chunk(t_stacks_data *sd)
 		ra(sd);
 		sd->small_on_top = 0;
 	}
-	print_stacks(sd);
-	ft_printf("big on top: %i; amount done %i, length: %i\n", sd->big_on_top, sd->amount_done, sd->length);
+	// print_stacks(sd);
+	// ft_printf("big on top: %i; amount done %i, length: %i\n", sd->big_on_top, sd->amount_done, sd->length);
 	i = 0;
 	// if (sd->amount_done < sd->length / 2)
 	// {
-	// if (sd->cur_chunk == sd->chunk_count)
-	while (i++ < (sd->big_on_top + sd->amount_done - size))
-		ra(sd);
+	// printf()
+	ft_printf("resetting stack\n");
+	if (sd->cur_chunk == sd->chunk_count)
+	// if (sd->cur_chunk > sd->chunk_count / 2)
+	{
+		while (i++ < (size - sd->big_on_top))
+			rra(sd);
+	}
+	else
+	{
+		while (i++ < (sd->big_on_top + sd->amount_done - size))
+			ra(sd);
+	}
 	// }
 	// else
 	// {
@@ -326,7 +339,7 @@ int	sort_chunk(t_stacks_data *sd)
 			// rra(sd);
 	// }
 	sd->big_on_top = 0;
-	// sd->small_on_top = 0;
+	sd->small_on_top = 0;
 	return (1);
 }
 
@@ -346,13 +359,18 @@ int	push_chunk(t_stacks_data *sd, int c)
 		{
 			if (!pb(sd))
 				return (0);
+			// if (sd->cur_chunk > (sd->chunk_count / 2) + 1)
+			// 	rra(sd);
 		}
 		else
-			ra(sd);
+			// if (sd->cur_chunk > (sd->chunk_count / 2) + 1)
+			// 	rra(sd);
+			// else
+				ra(sd);
 		i++;
 	}
 	return (1);
-	ft_printf("stack length: %i\n", stack_size(sd->b));
+	// ft_printf("stack length: %i\n", stack_size(sd->b));
 }
 
 
@@ -366,17 +384,19 @@ int	main(int argc, char **argv)
 	sd = init_sd(argc, argv);
 	if (sd == NULL)
 		return (1);
-	ft_printf("\nchunks %i\n", ft_round((float)(argc - 1) / 55 + 2));
-	print_stacks(sd);
+	// ft_printf("\nchunks %i\n", ft_round((float)(argc - 1) / 55 + 2));
+	// print_stacks(sd);
 	i = 0;
 	while (i < sd->chunk_count * 2)
 	{
-		push_chunk(sd, i);
-		print_stacks(sd);
-		sort_chunk(sd);
-		print_stacks(sd);
 		sd->cur_chunk++;
-		ft_printf("Current chunk: %i of %i\n", sd->cur_chunk, sd->chunk_count);
+		ft_printf("pushing\n");
+		push_chunk(sd, i);
+		// print_stacks(sd);
+		ft_printf("sorting\n");
+		sort_chunk(sd);
+		// print_stacks(sd);
+		// ft_printf("Current chunk: %i of %i\n", sd->cur_chunk, sd->chunk_count);
 		i += 2;
 	}
 
