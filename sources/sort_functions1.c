@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 00:20:58 by albertvanan       #+#    #+#             */
-/*   Updated: 2022/12/27 01:07:23 by albertvanan      ###   ########.fr       */
+/*   Updated: 2022/12/30 14:42:09 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,15 @@ void	ss(t_stacks_data *sd)
  * 
  * @param sd 
  */
-void	pa(t_stacks_data *sd)
+int	pa(t_stacks_data *sd)
 {
 	ft_printf("pa\n");
 	if (sd->b == NULL)
-		return ;
-	stack_add_front(&sd->a, sd->b->nbr);
+		return (1);
+	if (!stack_add_front(&sd->a, sd->b->nbr))
+		return (0);
 	stack_del_one(&sd->b, sd->b);
-	return ;
+	return (1);
 }
 
 /**
@@ -73,12 +74,13 @@ void	pa(t_stacks_data *sd)
  * 
  * @param sd 
  */
-void	pb(t_stacks_data *sd)
+int	pb(t_stacks_data *sd)
 {
 	ft_printf("pb\n");
 	if (sd->a == NULL)
-		return ;
-	stack_add_front(&sd->b, sd->a->nbr);
+		return (1);
+	if (!stack_add_front(&sd->b, sd->a->nbr))
+		return (0);
 	stack_del_one(&sd->a, sd->a);
-	return ;
+	return (1);
 }

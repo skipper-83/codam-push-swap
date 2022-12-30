@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:17:10 by albertvanan       #+#    #+#             */
-/*   Updated: 2022/12/27 23:39:31 by albertvanan      ###   ########.fr       */
+/*   Updated: 2022/12/30 17:09:05 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@
 # define RRA 9
 # define RRB 10
 # define RRR 11
+# define SMALLEST_TOP 0
+# define SMALLEST_BOTTOM 1
+# define BIGGEST_TOP 2
+# define BIGGEST_BOTTOM 3
+# define BIGGEST 4
+# define SMALLEST 5
+# define DISTANCE 6
 # define MEM_ERR "Memory error\n"
 # define INPUT_ERR "Input error\n"
 
@@ -43,9 +50,13 @@ typedef struct s_stacks_data
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		biggest;
-	int		smallest;
 	int		length;
+	int		*chunks;
+	int		chunk_count;
+	int		small_on_top;
+	int		big_on_top;
+	int		amount_done;
+	int		cur_chunk;
 }	t_stacks_data;
 
 //
@@ -64,8 +75,8 @@ void	stack_rotate(t_stack **head, int direction);
 void	sa(t_stacks_data *sd);
 void	sb(t_stacks_data *sd);
 void	ss(t_stacks_data *sd);
-void	pa(t_stacks_data *sd);
-void	pb(t_stacks_data *sd);
+int		pa(t_stacks_data *sd);
+int		pb(t_stacks_data *sd);
 
 //
 // SORT FUNCTIONS 2

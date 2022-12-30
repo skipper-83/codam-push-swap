@@ -9,7 +9,7 @@ GENERATOR_SRC		=	$(GENERATOR_SRC_DIR)/generator.c
 GENERATOR_OBJ		=	$(patsubst $(GENERATOR_SRC_DIR)/%.c,$(GENERATOR_OBJ_DIR)/%.o,$(GENERATOR_SRC))
 
 CC					=	cc
-CCFLAGS				=	-Wall -Werror -Wextra
+CFLAGS				=	-Wall -Werror -Wextra
 
 NAME				=	push_swap
 GENERATOR			=	generator
@@ -37,10 +37,10 @@ run					: $(NAME) $(GENERATOR)
 					./$(NAME) $(ARG)
 
 $(NAME)				: $(PUSH_SWAP_OBJS) $(LIB)
-					$(CC) $(CCFLAGS) $(PUSH_SWAP_OBJS) $(LIB) -o $(NAME)
+					$(CC) $(CFLAGS) $(PUSH_SWAP_OBJS) $(LIB) -o $(NAME)
 
 $(GENERATOR) 		: $(GENERATOR_OBJ) $(LIB)
-					$(CC) $(CCFLAGS) $(GENERATOR_OBJ) $(LIB) -o $(GENERATOR)
+					$(CC) $(CFLAGS) $(GENERATOR_OBJ) $(LIB) -o $(GENERATOR)
 
 $(LIB)				:
 					$(MAKE) -C $(LIBDIR)
