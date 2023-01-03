@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:17:10 by albertvanan       #+#    #+#             */
-/*   Updated: 2022/12/31 00:14:54 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/03 01:50:56 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,38 @@
 # define BIGGEST 4
 # define SMALLEST 5
 # define DISTANCE 6
-# define MEM_ERR "Memory error\n"
-# define INPUT_ERR "Input error\n"
+# define MEM_ERR "Error\n"
+# define INPUT_ERR "Error\n"
+# define TOP_B 0
+# define TOP_MB 1
+# define TOP_MSB 2
+# define TOP_SMB 3
+# define BOTTOM_B 4
+# define BOTTOM_MB 5
+# define BOTTOM_MSB 6
+# define BOTTOM_SMB 7
 
 typedef struct s_stack{
 	int				nbr;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
+
+typedef struct s_top_three
+{
+	int	big;
+	int	middle;
+	int	small;
+	int	b_top;
+	int	b_bottom;
+	int	m_top;
+	int	m_bottom;
+	int	s_top;
+	int	s_bottom;
+	int	distance;
+	int	operation;
+}	t_top_three;
+
 
 typedef struct s_stacks_data
 {
@@ -53,11 +77,13 @@ typedef struct s_stacks_data
 	int		length;
 	int		*chunks;
 	int		chunk_count;
-	int		small_on_top;
-	int		small_on_bottom;
-	int		big_on_top;
-	int		amount_done;
 	int		cur_chunk;
+	int		small_on_top;
+	// int		small_on_bottom;
+	int		big_on_top;
+	int		sorted_top;
+	int		sorted_size;
+	int		sorted_bottom;
 }	t_stacks_data;
 
 //
