@@ -46,9 +46,11 @@ $(LIB)				:
 					$(MAKE) -C $(LIBDIR)
 
 $(PUSH_SWAP_OBJ_DIR)/%.o: $(PUSH_SWAP_SRC_DIR)/%.c 
+					@mkdir -p $(PUSH_SWAP_OBJ_DIR)
 					$(CC) $(CFLAGS) -c -o $@ $<
 
 $(GENERATOR_OBJ_DIR)/%.o: $(GENERATOR_SRC_DIR)/%.c 
+					@mkdir -p $(PUSH_SWAP_OBJ_DIR)
 					$(CC) $(CFLAGS) -c -o $@ $<
 
 .PHONY				: all clean fclean re run
