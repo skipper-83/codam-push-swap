@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:53:52 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/05 00:02:29 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/05 00:04:27 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,7 +202,8 @@ int	main(int argc, char **argv)
 	{
 		if (!push_chunks(sd))
 			return (ft_putstr_fd(MEM_ERR, 2), free(sd), 1);
-		sort_three(sd);
+		if (!stack_sorted(sd->a))
+			sort_three(sd);
 		while (sd->sorted_size < sd->length)
 		{
 			if (!execute_operation(sd))
