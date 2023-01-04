@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:17:10 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 01:07:27 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/04 11:04:14 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,22 @@ typedef struct s_stacks_data
 }	t_sd;
 
 //
-// INIT FUNCTIONS
-
-t_sd		*init_sd(int argc, char **argv);
+// PUSH CHUNK FUNCTIONS
 int			push_chunks(t_sd *sd);
 
 //
-// CHECKER FUNCTIONS
+// INIT FUNCTIONS
+t_sd		*initialize(int argc, char **argv);
 
-int			*argv_to_int(char **argv, int argc);
+//
+// SHARED INIT FUNCIONS
+t_sd		*init_sd(int *nmbrs, int length);
+int			*init_numbers_array(int argc, char **argv);
+
+//
+// CHECKER FUNCTIONS
+int			double_check(int *arr, int length);
+int			check_all_nmbrs(char *s);
 
 //
 // POSITION FUNCTIONS

@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:53:52 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 01:23:27 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/04 11:01:14 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (1);
-	sd = init_sd(argc, argv);
+	sd = initialize(argc, argv);
 	if (sd == NULL)
 		return (1);
 	i = 0;

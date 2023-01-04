@@ -6,47 +6,46 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:28:22 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 01:05:29 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/04 11:25:11 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	check_all_nmbrs(char *s);
-
 /**
- * @brief	Convert argv to int. Check if input is all numbers, and if  all
- * 			numbers are of INT size.
+ * @brief Check if a number is in the array twice
  * 
- * @param argv 
- * @param argc 
- * @return int* 
+ * @param arr 
+ * @param length 
+ * @return int 
  */
-int	*argv_to_int(char **argv, int argc)
+int	double_check(int *arr, int length)
 {
-	int		i;
-	long	number;
-	int		*res;
+	int	i;
+	int	j;
 
-	i = 1;
-	number = 0;
-	res = malloc(sizeof(int) * argc - 1);
-	if (res == NULL)
-		return (ft_putstr_fd(MEM_ERR, 2), free(res), NULL);
-	while (i < argc)
+	i = 0;
+	while (i < length)
 	{
-		if (!check_all_nmbrs(argv[i]))
-			return (ft_putstr_fd(INPUT_ERR, 2), free(res), NULL);
-		number = ft_atoli(argv[i]);
-		if (number > INT_MAX || number < INT_MIN)
-			return (ft_putstr_fd(INPUT_ERR, 2), free(res), NULL);
-		res[i - 1] = number;
+		j = 0;
+		while (j < length)
+		{
+			if (arr[j] == arr[i] && i != j)
+				return (ft_putstr_fd("INPUT_ERR", 2), 0);
+			j++;
+		}
 		i++;
 	}
-	return (res);
+	return (1);
 }
 
-static int	check_all_nmbrs(char *s)
+/**
+ * @brief Check if all entries are numbers
+ * 
+ * @param s 
+ * @return int 
+ */
+int	check_all_nmbrs(char *s)
 {
 	int	i;
 	int	max_length;
