@@ -6,18 +6,18 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 00:25:21 by albertvanan       #+#    #+#             */
-/*   Updated: 2022/12/27 01:07:29 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/03 23:55:56 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "push_swap.h"
 
 /**
  * @brief rotate stack a left (first becomes last)
  * 
  * @param sd 
  */
-void	ra(t_stacks_data *sd)
+void	ra(t_sd *sd)
 {
 	ft_printf("ra\n");
 	if (sd->a != NULL)
@@ -30,7 +30,7 @@ void	ra(t_stacks_data *sd)
  * 
  * @param sd 
  */
-void	rb(t_stacks_data *sd)
+void	rb(t_sd *sd)
 {
 	ft_printf("rb\n");
 	if (sd->b != NULL)
@@ -43,7 +43,7 @@ void	rb(t_stacks_data *sd)
  * 
  * @param sd 
  */
-void	rr(t_stacks_data *sd)
+void	rr(t_sd *sd)
 {
 	ft_printf("rr\n");
 	if (sd->a != NULL)

@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:17:10 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/03 01:50:56 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/04 01:07:27 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@
 # define NORMAL 0
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
-# define SA 1
-# define SB 2
-# define SS 3
-# define PA 4
-# define PB 5
-# define RA 6
-# define RB 7
-# define RR 8
-# define RRA 9
-# define RRB 10
-# define RRR 11
+// # define SA 1
+// # define SB 2
+// # define SS 3
+// # define PA 4
+// # define PB 5
+// # define RA 6
+// # define RB 7
+// # define RR 8
+// # define RRA 9
+// # define RRB 10
+// # define RRR 11
 # define SMALLEST_TOP 0
 # define SMALLEST_BOTTOM 1
 # define BIGGEST_TOP 2
@@ -69,7 +69,6 @@ typedef struct s_top_three
 	int	operation;
 }	t_top_three;
 
-
 typedef struct s_stacks_data
 {
 	t_stack	*a;
@@ -78,43 +77,70 @@ typedef struct s_stacks_data
 	int		*chunks;
 	int		chunk_count;
 	int		cur_chunk;
-	int		small_on_top;
-	// int		small_on_bottom;
-	int		big_on_top;
-	int		sorted_top;
 	int		sorted_size;
 	int		sorted_bottom;
-}	t_stacks_data;
+}	t_sd;
+
+//
+// INIT FUNCTIONS
+
+t_sd		*init_sd(int argc, char **argv);
+int			push_chunks(t_sd *sd);
+
+//
+// CHECKER FUNCTIONS
+
+int			*argv_to_int(char **argv, int argc);
+
+//
+// POSITION FUNCTIONS
+
+t_top_three	*get_positions(t_stack *stack);
+
+//
+// OPERATION FUNCTIONS
+int			execute_operation(t_sd *sd);
+
+//
+// OPERATION UTIL FUNCTIONS
+
+void		get_operation(t_top_three *tt, int stack_len);
+void		rotate_i(t_sd *sd, void (*r)(t_sd *), int i);
 
 //
 // STACK FUNCTIONS
 
-void	stack_del(t_stack *head);
-void	stack_del_one(t_stack **head, t_stack *to_del);
-int		stack_add_front(t_stack **head, int val);
-void	stack_swap(t_stack *head);
-void	stack_rotate(t_stack **head, int direction);
-	void	print_stack(t_stack *head);
+void		stack_del(t_stack *head);
+void		stack_del_one(t_stack **head, t_stack *to_del);
+int			stack_add_front(t_stack **head, int val);
+void		stack_swap(t_stack *head);
+void		stack_rotate(t_stack **head, int direction);
+
+//
+// PRINT FUNCTIOND
+
+void		print_stacks(t_sd *sd);
+void		print_stack(t_stack *head);
 
 //
 // SORT FUNCTIONS 1
 
-void	sa(t_stacks_data *sd);
-void	sb(t_stacks_data *sd);
-void	ss(t_stacks_data *sd);
-int		pa(t_stacks_data *sd);
-int		pb(t_stacks_data *sd);
+void		sa(t_sd *sd);
+void		sb(t_sd *sd);
+void		ss(t_sd *sd);
+int			pa(t_sd *sd);
+int			pb(t_sd *sd);
 
 //
 // SORT FUNCTIONS 2
-void	ra(t_stacks_data *sd);
-void	rb(t_stacks_data *sd);
-void	rr(t_stacks_data *sd);
+void		ra(t_sd *sd);
+void		rb(t_sd *sd);
+void		rr(t_sd *sd);
 
 //
 // SORT FUNCTIONS 3
-void	rra(t_stacks_data *sd);
-void	rrb(t_stacks_data *sd);
-void	rrr(t_stacks_data *sd);	
+void		rra(t_sd *sd);
+void		rrb(t_sd *sd);
+void		rrr(t_sd *sd);	
 
 #endif

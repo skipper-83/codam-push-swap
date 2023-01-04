@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_round.c                                         :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/27 21:29:13 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 01:07:48 by albertvanan      ###   ########.fr       */
+/*   Created: 2022/12/07 13:53:52 by albertvanan       #+#    #+#             */
+/*   Updated: 2023/01/04 01:10:03 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-/**
- * @brief round float value
- * 
- * @param val 
- * @return int 
- */
-int	ft_round(float val)
+int	main(int argc, char **argv)
 {
-	float	temp;
+	t_sd	*sd;
+	int		i;
 
-	temp = (val - (int)val) * 10;
-	if (temp >= 5)
-		return ((int)val + 1);
-	return ((int)val);
+	if (argc < 2)
+		return (1);
+	sd = init_sd(argc, argv);
+	if (sd == NULL)
+		return (1);
+	i = 0;
+	if (!push_chunks(sd))
+		return (ft_putstr_fd(MEM_ERR, 2), free(sd), 1);
+	while (sd->sorted_size < sd->length)
+	{
+		if (!execute_operation(sd))
+			return (ft_putstr_fd(MEM_ERR, 2), free(sd), 1);
+	}
+	free(sd);
+	return (0);
 }

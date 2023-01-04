@@ -6,18 +6,18 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 00:20:58 by albertvanan       #+#    #+#             */
-/*   Updated: 2022/12/30 14:42:09 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/03 23:56:10 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "push_swap.h"
 
 /**
  * @brief swap stack a (sd->a)
  * 
  * @param sd 
  */
-void	sa(t_stacks_data *sd)
+void	sa(t_sd *sd)
 {
 	ft_printf("sa\n");
 	if (sd->a != NULL)
@@ -30,7 +30,7 @@ void	sa(t_stacks_data *sd)
  * 
  * @param sd 
  */
-void	sb(t_stacks_data *sd)
+void	sb(t_sd *sd)
 {
 	ft_printf("sb\n");
 	if (sd->b != NULL)
@@ -43,7 +43,7 @@ void	sb(t_stacks_data *sd)
  * 
  * @param sd 
  */
-void	ss(t_stacks_data *sd)
+void	ss(t_sd *sd)
 {
 	ft_printf("ss\n");
 	if (sd->a != NULL)
@@ -58,7 +58,7 @@ void	ss(t_stacks_data *sd)
  * 
  * @param sd 
  */
-int	pa(t_stacks_data *sd)
+int	pa(t_sd *sd)
 {
 	ft_printf("pa\n");
 	if (sd->b == NULL)
@@ -74,7 +74,7 @@ int	pa(t_stacks_data *sd)
  * 
  * @param sd 
  */
-int	pb(t_stacks_data *sd)
+int	pb(t_sd *sd)
 {
 	ft_printf("pb\n");
 	if (sd->a == NULL)

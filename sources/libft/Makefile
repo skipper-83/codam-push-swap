@@ -84,19 +84,20 @@ all		:	${NAME}
 #set name command, require OBJS
 #wrap files OBJS into library with name NAME
 ${NAME}	:	${OBJS} 
-	${AR} ${ARFLAGS} ${NAME} ${OBJS}
+	@${AR} ${ARFLAGS} ${NAME} ${OBJS}
 
 # make c files in to object files
 %.o : %.c
-	${CC} ${CFLAGS} $^ -c
+	@echo Creating: $@ "\x1b[1A\x1b[M"
+	@${CC} ${CFLAGS} $^ -c
 
 #remove OBJS files
 clean	:
-	${RM} ${OBJS} 
+	@${RM} ${OBJS} 
 
 #clean all
 fclean	: clean
-	${RM} ${NAME}
+	@${RM} ${NAME}
 
 #rebuild libray
 re		: fclean all

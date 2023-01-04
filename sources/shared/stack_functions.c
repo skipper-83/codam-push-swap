@@ -6,11 +6,11 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:16:54 by albertvanan       #+#    #+#             */
-/*   Updated: 2022/12/27 01:07:36 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/03 23:37:40 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "push_swap.h"
 
 /**
  * @brief	delete full stack
@@ -126,54 +126,3 @@ void	stack_rotate(t_stack **head, int direction)
 	else if (direction == NORMAL)
 		*head = (*head)->next;
 }
-
-void	print_stack(t_stack *head)
-{
-	t_stack	*work;
-	int		i;
-
-	ft_printf("\nLIST DUMP\n");
-	if (head == NULL)
-		return ;
-	work = head;
-	i = 0;
-	while (work->next != head)
-	{
-		ft_printf("item %i \t -> nbr %i\n", i++, work->nbr);
-		ft_printf("\t -> addr %p\n", work);
-		ft_printf("\t -> next %p\n", work->next);
-		ft_printf("\t -> prev %p\n", work->prev);
-		work = work->next;
-	}
-	ft_printf("item %i \t -> nbr %i\n", i++, work->nbr);
-	ft_printf("\t -> addr %p\n", work);
-	ft_printf("\t -> next %p\n", work->next);
-	ft_printf("\t -> prev %p\n\n", work->prev);
-}
-// t_stack	*stack_init(int length)
-// {
-// 	t_stack	*ret;
-// 	t_stack	*work;
-// 	t_stack	*new;
-// 	int	 i = 0;
-
-// 	ret = ft_calloc(1, sizeof(t_stack));
-// 	if (ret == NULL)
-// 		return (NULL);
-// 	work = ret;
-// 	work->nbr = i;
-// 	while (--length)
-// 	{
-// 		new = ft_calloc(1, sizeof(t_stack));
-// 		if (new == NULL)
-// 			return (stack_del(ret), NULL);
-// 		i++;
-// 		work->next = new;
-// 		new->prev = work;
-// 		new->nbr = i;
-// 		work = new;
-// 	}
-// 	work->next = ret;
-// 	ret->prev = work;
-// 	return (ret);
-// }
