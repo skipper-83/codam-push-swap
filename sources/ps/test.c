@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:53:52 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 01:10:03 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/04 01:23:27 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ int	main(int argc, char **argv)
 		if (!execute_operation(sd))
 			return (ft_putstr_fd(MEM_ERR, 2), free(sd), 1);
 	}
-	free(sd);
-	return (0);
+	return (stack_del(sd->a), free(sd->chunks), free(sd), 0);
 }
