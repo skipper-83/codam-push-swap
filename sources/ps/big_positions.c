@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   positions.c                                        :+:      :+:    :+:   */
+/*   big_positions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:38:35 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 01:08:02 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/04 22:40:22 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	stack_size(t_stack *stack);
-void		get_big_pos(t_top_three *tt, t_stack *stack, int stack_len);
-void		get_middle_pos(t_top_three *tt, t_stack *stack, int stack_len);
 static void	get_small_pos(t_top_three *tt, t_stack *stack, int stack_len);
+static void	get_big_pos(t_top_three *tt, t_stack *stack, int stack_len);
+static void	get_middle_pos(t_top_three *tt, t_stack *stack, int stack_len);
 
 /**
  * @brief	Get the positions of the biggest, second biggest and third biggest
@@ -47,7 +46,7 @@ t_top_three	*get_positions(t_stack *stack)
  * @param stack 
  * @return int 
  */
-static int	stack_size(t_stack *stack)
+int	stack_size(t_stack *stack)
 {
 	t_stack	*top;
 	int		ret;
@@ -72,7 +71,7 @@ static int	stack_size(t_stack *stack)
  * @param stack 
  * @param stack_len 
  */
-void	get_big_pos(t_top_three *tt, t_stack *stack, int stack_len)
+static void	get_big_pos(t_top_three *tt, t_stack *stack, int stack_len)
 {
 	tt->big = INT_MIN;
 	tt->distance = 0;
@@ -100,7 +99,7 @@ void	get_big_pos(t_top_three *tt, t_stack *stack, int stack_len)
  * @param stack 
  * @param stack_len 
  */
-void	get_middle_pos(t_top_three *tt, t_stack *stack, int stack_len)
+static void	get_middle_pos(t_top_three *tt, t_stack *stack, int stack_len)
 {
 	tt->middle = INT_MIN;
 	tt->distance = 0;

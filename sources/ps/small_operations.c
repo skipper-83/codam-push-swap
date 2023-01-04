@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 14:29:11 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 14:29:21 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/04 23:52:49 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,25 @@ void	sort_three(t_sd *sd)
 	{
 		ra(sd);
 		if (sd->a->nbr > sd->a->next->nbr)
-			sa(sd);
+		{
+			// ft_printf("swapping 2\n");
+			if (sd->b && sd->b->nbr < sd->b->next->nbr)
+				ss(sd);
+			else
+				sa(sd);
+		}
 		return ;
 	}
 	if (sd->a->nbr < sd->a->next->nbr && sd->a->nbr < sd->a->prev->nbr)
 		rra(sd);
 	if (sd->a->nbr > sd->a->next->nbr && sd->a->nbr < sd->a->prev->nbr)
-		sa(sd);
+	{
+		// ft_printf("swapping 3\n");
+		if (sd->b && sd->b->nbr < sd->b->next->nbr)
+			ss(sd);
+		else
+			sa(sd);
+	}
 	else
 		rra(sd);
 }

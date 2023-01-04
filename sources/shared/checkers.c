@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:28:22 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 11:25:11 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/04 12:59:25 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,20 @@ int	check_all_nmbrs(char *s)
 		if (i > max_length)
 			return (0);
 		i++;
+	}
+	return (1);
+}
+
+int	stack_sorted(t_stack *stack)
+{
+	t_stack	*head;
+
+	head = stack;
+	while (stack->next != head)
+	{
+		if (stack->nbr > stack->next->nbr)
+			return (0);
+		stack = stack->next;
 	}
 	return (1);
 }

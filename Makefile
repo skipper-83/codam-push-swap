@@ -44,6 +44,7 @@ run					: $(NAME) $(GENERATOR)
 					./$(NAME) $(ARG)
 
 $(NAME)				: $(SHARED_OBJS) $(PUSH_SWAP_OBJS)  $(LIB)
+					@echo Making $(NAME)
 					@$(CC) $(CFLAGS) $(PUSH_SWAP_OBJS) $(SHARED_OBJS) $(LIB) -o $(NAME)
 
 $(GENERATOR) 		: $(GENERATOR_OBJ) $(LIB)
@@ -54,17 +55,17 @@ $(LIB)				:
 					@$(MAKE) -C $(LIBDIR)
 
 $(PUSH_SWAP_OBJ_DIR)/%.o: $(PUSH_SWAP_SRC_DIR)/%.c
-					@echo Create: $@"\x1b[1A\x1b[M"
+					@echo Creating: $@"\x1b[1A\x1b[M"
 					@mkdir -p $(PUSH_SWAP_OBJ_DIR)
 					@$(CC) $(CFLAGS) -I $(INCLUDE_DIR) -c -o $@ $<
 
 $(SHARED_OBJ_DIR)/%.o: $(SHARED_SRC_DIR)/%.c 
-					@echo Create: $@"\x1b[1A\x1b[M"
+					@echo Creating: $@"\x1b[1A\x1b[M"
 					@mkdir -p $(SHARED_OBJ_DIR)
 					@$(CC) $(CFLAGS) -I $(INCLUDE_DIR) -c -o $@ $<
 
 $(GENERATOR_OBJ_DIR)/%.o: $(GENERATOR_SRC_DIR)/%.c 
-					@echo Create: $@"\x1b[1A\x1b[M"
+					@echo Creating: $@"\x1b[1A\x1b[M"
 					@mkdir -p $(GENERATOR_OBJ_DIR)
 					@$(CC) $(CFLAGS) -c -o $@ $<
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_chunks.c                                      :+:      :+:    :+:   */
+/*   big_push_chunks.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 00:41:37 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 11:23:03 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/04 14:39:51 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	push_chunks(t_sd *sd)
 		half = sd->chunks[i] + (sd->chunks[i + 1] - sd->chunks[i]) / 2;
 		j = 0;
 		pushed = 0;
-		while (sd->a && j++ < sd->length)
+		while (stack_size(sd->a) > 3)
 		{
 			ret = do_push(sd, i, half, &pushed);
 			if (ret == 0)

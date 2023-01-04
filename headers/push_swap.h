@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:17:10 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 11:04:14 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/04 23:03:55 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@
 # define BOTTOM_MB 5
 # define BOTTOM_MSB 6
 # define BOTTOM_SMB 7
+# define TOP_S 0
+# define BOTTOM_S 1
+# define TOP_R 2
+# define BOTTOM_R 3
 
 typedef struct s_stack{
 	int				nbr;
@@ -69,6 +73,15 @@ typedef struct s_top_three
 	int	operation;
 }	t_top_three;
 
+typedef struct s_bottom_two
+{
+	int	smallest;
+	int	runner_up;
+	int	distances[4];
+	int	distance;
+	int	operation;
+}	t_bt;
+
 typedef struct s_stacks_data
 {
 	t_stack	*a;
@@ -83,29 +96,40 @@ typedef struct s_stacks_data
 
 //
 // PUSH CHUNK FUNCTIONS
+
 int			push_chunks(t_sd *sd);
 
 //
 // INIT FUNCTIONS
+
 t_sd		*initialize(int argc, char **argv);
 
 //
 // SHARED INIT FUNCIONS
+
 t_sd		*init_sd(int *nmbrs, int length);
 int			*init_numbers_array(int argc, char **argv);
 
 //
 // CHECKER FUNCTIONS
+
 int			double_check(int *arr, int length);
 int			check_all_nmbrs(char *s);
+int			stack_sorted(t_stack *stack);
 
 //
 // POSITION FUNCTIONS
 
 t_top_three	*get_positions(t_stack *stack);
+int			stack_size(t_stack *stack);
 
 //
-// OPERATION FUNCTIONS
+// SMALL OPERATION FUNCTIONS
+void		sort_three(t_sd *sd);
+
+//
+// BIG OPERATION FUNCTIONS
+
 int			execute_operation(t_sd *sd);
 
 //
