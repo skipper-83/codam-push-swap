@@ -6,11 +6,11 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:16:54 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/03 23:37:40 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/06 22:54:33 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "shared.h"
 
 /**
  * @brief	delete full stack

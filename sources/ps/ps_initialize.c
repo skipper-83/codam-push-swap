@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   ps_initialize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:18:28 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/06 16:52:36 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/06 22:47:03 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	*bubble_sort(int *arr, int len);
  * @param argv 
  * @return t_stacks_data* 
  */
-t_sd	*initialize(int argc, char **argv)
+t_sd	*initialize_ps(int argc, char **argv)
 {
 	t_sd	*sd;
 	int		*nmbrs;
@@ -39,9 +39,10 @@ t_sd	*initialize(int argc, char **argv)
 		return (NULL);
 	sd = init_sd(nmbrs, length);
 	if (sd == NULL)
-		return (ft_putstr_fd(MEM_ERR, 2), NULL);
+		return (NULL);
 	nmbrs = bubble_sort(nmbrs, length);
 	sd->sorted_bottom = nmbrs[0];
+	sd->print_command = 1;
 	if (!define_chunks(sd, nmbrs))
 		return (ft_putstr_fd(MEM_ERR, 2), \
 		stack_del(sd->a), free(sd), free(nmbrs), NULL);

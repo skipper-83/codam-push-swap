@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:46:13 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/06 16:52:18 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/06 22:30:45 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@ static int	get_shortest(t_bt *bt, int len);
 static void	get_small_pos(t_bt *bt, t_stack *stack, int stack_len);
 static void	get_second_pos(t_bt *bt, t_stack *stack, int stack_len);
 
+/**
+ * @brief 	Execute operations based on the position of the numbers to 
+ * 			be pushed. Options are:
+ * 			- Smallest from top
+ * 			- Runner uo from top
+ * 			- Smallest from bottom
+ * 			- Runner up from bottom
+ * 
+ * @param sd 
+ * @param bt 
+ * @return int 
+ */
 int	execute_small_operation(t_sd *sd, t_bt *bt)
 {
 	if (bt->operation == TOP_S || bt->operation == TOP_R)
@@ -50,6 +62,13 @@ t_bt	*get_small_positions(t_stack *stack)
 	return (bt);
 }
 
+/**
+ * @brief	Get the position of the smallest number in a stack
+ * 
+ * @param bt 
+ * @param stack 
+ * @param stack_len 
+ */
 static void	get_small_pos(t_bt *bt, t_stack *stack, int stack_len)
 {
 	bt->smallest = INT_MAX;
@@ -70,6 +89,13 @@ static void	get_small_pos(t_bt *bt, t_stack *stack, int stack_len)
 		bt->distances[BOTTOM_S] = stack_len - bt->distances[TOP_S];
 }
 
+/**
+ * @brief Get the position of the second smallest number in a stack
+ * 
+ * @param bt 
+ * @param stack 
+ * @param stack_len 
+ */
 static void	get_second_pos(t_bt *bt, t_stack *stack, int stack_len)
 {
 	bt->runner_up = INT_MAX;
@@ -90,6 +116,15 @@ static void	get_second_pos(t_bt *bt, t_stack *stack, int stack_len)
 		bt->distances[BOTTOM_R] = stack_len - bt->distances[TOP_R];
 }
 
+/**
+ * @brief 	Get the shortest objectGet the shoretest route to the
+ * 			smallest or second smallest number in stack (whichever is closest to
+ * 			the top/bottom)
+ * 
+ * @param bt 
+ * @param len 
+ * @return int 
+ */
 static int	get_shortest(t_bt *bt, int len)
 {
 	int	i;

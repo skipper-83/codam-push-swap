@@ -6,14 +6,21 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:34:25 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 11:10:36 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/06 23:04:37 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "shared.h"
 
 static int	*argv_to_int(char **argv, int argc);
 
+/**
+ * @brief Initialize the array with all numbers passes as arguments.
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int* 
+ */
 int	*init_numbers_array(int argc, char **argv)
 {
 	int	*nmbrs;
@@ -24,15 +31,12 @@ int	*init_numbers_array(int argc, char **argv)
 	if (nmbrs == NULL)
 		return (NULL);
 	if (!double_check(nmbrs, length))
-		return (NULL);
+		return (free(nmbrs), NULL);
 	return (nmbrs);
 }
 
 /**
- * @brief Initialize the stacks:
- * 			- parse argv to integer array
- * 			- put all numbers in stack a
- * 			- exit with error when input error encountered
+ * @brief	Put all numbers in stack A, return stacks data.
  * 
  * @param argc 
  * @param argv 

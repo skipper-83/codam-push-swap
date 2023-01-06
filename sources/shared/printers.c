@@ -6,11 +6,11 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:36:52 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/03 23:55:26 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/06 22:54:17 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "shared.h"
 
 /**
  * @brief Print stacks a and b. For debugging only

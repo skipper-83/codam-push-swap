@@ -6,12 +6,18 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 14:29:11 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/06 16:49:11 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/06 22:28:14 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief 	Sort stack a with three elements with max 2 moves. 
+ * 			Use ss if stack b also needs swapping
+ * 
+ * @param sd 
+ */
 void	sort_three(t_sd *sd)
 {
 	if (sd->a->nbr > sd->a->prev->nbr && sd->a->nbr > sd->a->next->nbr)
@@ -39,6 +45,14 @@ void	sort_three(t_sd *sd)
 		rra(sd);
 }
 
+/**
+ * @brief	If stack A has 4 or 5 elements, push the smallest one/two
+ * 			to stack B, sort the three leftover elements and push the 
+ * 			small ones back
+ * 
+ * @param sd 
+ * @return int 
+ */
 int	sort_small(t_sd *sd)
 {
 	t_bt	*bt;

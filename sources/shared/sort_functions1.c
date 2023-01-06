@@ -6,23 +6,24 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 00:20:58 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/03 23:56:10 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/06 22:54:21 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "shared.h"
 
 /**
  * @brief swap stack a (sd->a)
  * 
  * @param sd 
  */
-void	sa(t_sd *sd)
+int	sa(t_sd *sd)
 {
-	ft_printf("sa\n");
+	if (sd->print_command)
+		ft_printf("sa\n");
 	if (sd->a != NULL)
 		stack_swap(sd->a);
-	return ;
+	return (1);
 }
 
 /**
@@ -30,12 +31,13 @@ void	sa(t_sd *sd)
  * 
  * @param sd 
  */
-void	sb(t_sd *sd)
+int	sb(t_sd *sd)
 {
-	ft_printf("sb\n");
+	if (sd->print_command)
+		ft_printf("sb\n");
 	if (sd->b != NULL)
 		stack_swap(sd->b);
-	return ;
+	return (1);
 }
 
 /**
@@ -43,14 +45,15 @@ void	sb(t_sd *sd)
  * 
  * @param sd 
  */
-void	ss(t_sd *sd)
+int	ss(t_sd *sd)
 {
-	ft_printf("ss\n");
+	if (sd->print_command)
+		ft_printf("ss\n");
 	if (sd->a != NULL)
 		stack_swap(sd->a);
 	if (sd->b != NULL)
 		stack_swap(sd->b);
-	return ;
+	return (1);
 }
 
 /**
@@ -60,7 +63,8 @@ void	ss(t_sd *sd)
  */
 int	pa(t_sd *sd)
 {
-	ft_printf("pa\n");
+	if (sd->print_command)
+		ft_printf("pa\n");
 	if (sd->b == NULL)
 		return (1);
 	if (!stack_add_front(&sd->a, sd->b->nbr))
@@ -76,7 +80,8 @@ int	pa(t_sd *sd)
  */
 int	pb(t_sd *sd)
 {
-	ft_printf("pb\n");
+	if (sd->print_command)
+		ft_printf("pb\n");
 	if (sd->a == NULL)
 		return (1);
 	if (!stack_add_front(&sd->b, sd->a->nbr))

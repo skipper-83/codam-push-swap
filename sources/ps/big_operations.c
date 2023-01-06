@@ -6,16 +6,16 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:59:49 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 14:04:12 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/06 22:33:47 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	smb(t_sd *sd, t_top_three *tt, void (*r)(t_sd *), int correction);
-static int	msb(t_sd *sd, t_top_three *tt, void (*r)(t_sd *), int correction);
-static int	mb_b(t_sd *sd, t_top_three *tt, void (*r)(t_sd *), int correction);
-static void	init(void (**rotate)(t_sd *), t_top_three *tt, int *correction);
+static int	smb(t_sd *sd, t_top_three *tt, int (*r)(t_sd *), int correction);
+static int	msb(t_sd *sd, t_top_three *tt, int (*r)(t_sd *), int correction);
+static int	mb_b(t_sd *sd, t_top_three *tt, int (*r)(t_sd *), int correction);
+static void	init(int (**rotate)(t_sd *), t_top_three *tt, int *correction);
 
 /**
  * @brief Execute the operation found in get_operation
@@ -24,9 +24,9 @@ static void	init(void (**rotate)(t_sd *), t_top_three *tt, int *correction);
  * @param tt 
  * @return int 
  */
-int	execute_operation(t_sd *sd)
-{
-	void		(*rotate)(t_sd *);
+int	push_three(t_sd *sd)
+{	
+	int			(*rotate)(t_sd *);
 	t_top_three	*tt;
 	int			correction;
 	int			ret;
@@ -55,7 +55,7 @@ int	execute_operation(t_sd *sd)
  * @param tt 
  * @param correction 
  */
-static void	init(void (**rotate)(t_sd *), t_top_three *tt, int *correction)
+static void	init(int (**rotate)(t_sd *), t_top_three *tt, int *correction)
 {
 	if (tt->operation < 4)
 	{
@@ -85,7 +85,7 @@ static void	init(void (**rotate)(t_sd *), t_top_three *tt, int *correction)
  * @param correction 
  * @return int 
  */
-static int	smb(t_sd *sd, t_top_three *tt, void (*r)(t_sd *), int correction)
+static int	smb(t_sd *sd, t_top_three *tt, int (*r)(t_sd *), int correction)
 {
 	rotate_i(sd, r, tt->small);
 	if (!pa(sd))
@@ -121,7 +121,7 @@ static int	smb(t_sd *sd, t_top_three *tt, void (*r)(t_sd *), int correction)
  * @param correction 
  * @return int 
  */
-static int	msb(t_sd *sd, t_top_three *tt, void (*r)(t_sd *), int correction)
+static int	msb(t_sd *sd, t_top_three *tt, int (*r)(t_sd *), int correction)
 {
 	rotate_i(sd, r, tt->middle);
 	if (!pa(sd))
@@ -156,7 +156,7 @@ static int	msb(t_sd *sd, t_top_three *tt, void (*r)(t_sd *), int correction)
  * @param correction 
  * @return int 
  */
-static int	mb_b(t_sd *sd, t_top_three *tt, void (*r)(t_sd *), int correction)
+static int	mb_b(t_sd *sd, t_top_three *tt, int (*r)(t_sd *), int correction)
 {
 	if (tt->operation == TOP_MB || tt->operation == BOTTOM_MB)
 	{

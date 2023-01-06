@@ -6,23 +6,24 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 00:25:21 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/03 23:55:56 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/06 22:54:25 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "shared.h"
 
 /**
  * @brief rotate stack a left (first becomes last)
  * 
  * @param sd 
  */
-void	ra(t_sd *sd)
+int	ra(t_sd *sd)
 {
-	ft_printf("ra\n");
+	if (sd->print_command)
+		ft_printf("ra\n");
 	if (sd->a != NULL)
 		stack_rotate(&sd->a, NORMAL);
-	return ;
+	return (1);
 }
 
 /**
@@ -30,12 +31,13 @@ void	ra(t_sd *sd)
  * 
  * @param sd 
  */
-void	rb(t_sd *sd)
+int	rb(t_sd *sd)
 {
-	ft_printf("rb\n");
+	if (sd->print_command)
+		ft_printf("rb\n");
 	if (sd->b != NULL)
 		stack_rotate(&sd->b, NORMAL);
-	return ;
+	return (1);
 }
 
 /**
@@ -43,12 +45,13 @@ void	rb(t_sd *sd)
  * 
  * @param sd 
  */
-void	rr(t_sd *sd)
+int	rr(t_sd *sd)
 {
-	ft_printf("rr\n");
+	if (sd->print_command)
+		ft_printf("rr\n");
 	if (sd->a != NULL)
 		stack_rotate(&sd->a, NORMAL);
 	if (sd->b != NULL)
 		stack_rotate(&sd->b, NORMAL);
-	return ;
+	return (1);
 }

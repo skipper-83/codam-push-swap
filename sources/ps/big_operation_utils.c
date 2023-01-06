@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:44:49 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 14:05:37 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/06 22:23:18 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	get_operation(t_top_three *tt, int stack_len)
  * @param rotation 
  * @param i 
  */
-void	rotate_i(t_sd *sd, void (*r)(t_sd *), int i)
+void	rotate_i(t_sd *sd, int (*r)(t_sd *), int i)
 {
 	while (i > 0)
 	{

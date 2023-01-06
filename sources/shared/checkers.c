@@ -6,11 +6,11 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:28:22 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 12:59:25 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/06 22:56:57 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "shared.h"
 
 /**
  * @brief Check if a number is in the array twice
@@ -31,7 +31,7 @@ int	double_check(int *arr, int length)
 		while (j < length)
 		{
 			if (arr[j] == arr[i] && i != j)
-				return (ft_putstr_fd("INPUT_ERR", 2), 0);
+				return (ft_putstr_fd(INPUT_ERR, 2), 0);
 			j++;
 		}
 		i++;
