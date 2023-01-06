@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:18:28 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 22:41:13 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/06 16:52:36 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	define_chunks(t_sd *sd, int *nmbrs)
 	{
 		start = (sd->length / sd->chunk_count) * i;
 		if (i == sd->chunk_count - 1)
-			end = sd->length - 4; //DOUBLECHECK
+			end = sd->length - 4;
 		else
 			end = ((sd->length / sd->chunk_count) * (i + 1) - 1);
 		sd->chunks[i * 2] = nmbrs[start];

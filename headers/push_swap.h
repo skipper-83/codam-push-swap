@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:17:10 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 23:03:55 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/06 16:49:28 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,6 @@
 # define NORMAL 0
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
-// # define SA 1
-// # define SB 2
-// # define SS 3
-// # define PA 4
-// # define PB 5
-// # define RA 6
-// # define RB 7
-// # define RR 8
-// # define RRA 9
-// # define RRB 10
-// # define RRR 11
 # define SMALLEST_TOP 0
 # define SMALLEST_BOTTOM 1
 # define BIGGEST_TOP 2
@@ -125,7 +114,15 @@ int			stack_size(t_stack *stack);
 
 //
 // SMALL OPERATION FUNCTIONS
+
 void		sort_three(t_sd *sd);
+int			sort_small(t_sd *sd);
+
+//
+// SMALL OPERATION UITLS FUNCTIONS
+
+int			execute_small_operation(t_sd *sd, t_bt *bt);
+t_bt		*get_small_positions(t_stack *stack);
 
 //
 // BIG OPERATION FUNCTIONS
