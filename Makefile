@@ -58,6 +58,9 @@ start				:
 run					: $(NAME) $(GENERATOR)
 					$(eval ARG=$(shell ./$(GENERATOR) $(ENTRIES)))
 					./$(NAME) $(ARG)
+check				: $(NAME) $(GENERATOR) $(CHECKER)
+					$(eval ARG=$(shell ./$(GENERATOR) $(ENTRIES)))
+					./$(NAME) $(ARG) | ./$(CHECKER) $(ARG)
 
 $(NAME)				: $(SHARED_OBJS) $(PUSH_SWAP_OBJS)  $(LIB)
 					@echo "\nCompiling $(NAME)...   "
@@ -99,4 +102,4 @@ $(GENERATOR_OBJ_DIR)/%.o: $(GENERATOR_SRC_DIR)/%.c
 					@mkdir -p $(GENERATOR_OBJ_DIR)
 					@$(CC) $(CFLAGS) -c -o $@ $<
 
-.PHONY				: all clean fclean re run 
+.PHONY				: all clean fclean re run check

@@ -6,7 +6,7 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 21:22:19 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/07 10:39:44 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/07 10:44:07 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 static t_sd	*init_checker(int argc, char **argv);
 static t_op	get_operation(char *input);
 static int	read_command(t_sd *sd);
+
+static void	free_stacks(t_sd *sd)
+{
+	stack_del(sd->a);
+	stack_del(sd->b);
+	free(sd);
+}
 
 int	main(int argc, char **argv)
 {
