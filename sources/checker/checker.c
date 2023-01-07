@@ -6,13 +6,44 @@
 /*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 21:22:19 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/07 00:48:01 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/07 10:39:44 by albertvanan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-t_sd	*init_checker(int argc, char **argv)
+static t_sd	*init_checker(int argc, char **argv);
+static t_op	get_operation(char *input);
+static int	read_command(t_sd *sd);
+
+int	main(int argc, char **argv)
+{
+	t_sd	*sd;
+
+	if (argc < 2)
+		return (1);
+	sd = init_checker(argc, argv);
+	if (sd == NULL)
+		return (1);
+	if (!read_command(sd))
+		return (free_stacks(sd), 1);
+	if (stack_sorted(sd->a) && sd->b == NULL)
+		ft_printf(OK);
+	else
+		ft_printf(KO);
+	return (free_stacks(sd), 0);
+}
+
+/**
+ * @brief	Initialize. Declare and fill numbers array 
+ * 			and stack A, return null on error. Input
+ * 			chec isdone in init_numbers_array()
+ * 
+ * @param argc 
+ * @param argv 
+ * @return t_sd* 
+ */
+static t_sd	*init_checker(int argc, char **argv)
 {
 	t_sd	*sd;
 	int		*nmbrs;
@@ -28,7 +59,14 @@ t_sd	*init_checker(int argc, char **argv)
 	return (free(nmbrs), sd);
 }
 
-t_op	get_operation(char *input)
+/**
+ * @brief	Return proper operation function based on input. Return
+ * 			NULL is input is invalid.
+ * 
+ * @param input 
+ * @return t_op 
+ */
+static t_op	get_operation(char *input)
 {
 	if (!ft_strncmp(input, SA, ft_strlen(input)))
 		return (sa);
@@ -55,7 +93,13 @@ t_op	get_operation(char *input)
 	return (NULL);
 }
 
-int	read_command(t_sd *sd)
+/**
+ * @brief	Read and execute operations from std input.
+ * 
+ * @param sd 
+ * @return int 
+ */
+static int	read_command(t_sd *sd)
 {
 	t_op	operation;
 	char	*command;
@@ -71,23 +115,5 @@ int	read_command(t_sd *sd)
 		command = get_next_line(0);
 	}
 	return (1);
-}
-
-int	main(int argc, char **argv)
-{
-	t_sd	*sd;
-
-	if (argc < 2)
-		return (1);
-	sd = init_checker(argc, argv);
-	if (sd == NULL)
-		return (1);
-	if (!read_command(sd))
-		return (free_stacks(sd), 1);
-	if (stack_sorted(sd->a) && sd->b == NULL)
-		ft_printf(OK);
-	else
-		ft_printf(KO);
-	return (free_stacks(sd), 0);
 }
 
