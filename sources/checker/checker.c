@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
+/*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 21:22:19 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/07 10:44:07 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/09 10:42:13 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ static t_sd	*init_checker(int argc, char **argv);
 static t_op	get_operation(char *input);
 static int	read_command(t_sd *sd);
 
-static void	free_stacks(t_sd *sd)
-{
-	stack_del(sd->a);
-	stack_del(sd->b);
-	free(sd);
-}
+// static void	free_stacks(t_sd *sd)
+// {
+// 	stack_del(sd->a);
+// 	stack_del(sd->b);
+// 	free(sd);
+// }
 
 int	main(int argc, char **argv)
 {
@@ -33,12 +33,12 @@ int	main(int argc, char **argv)
 	if (sd == NULL)
 		return (1);
 	if (!read_command(sd))
-		return (free_stacks(sd), 1);
+		return (free_sd(sd), 1);
 	if (stack_sorted(sd->a) && sd->b == NULL)
 		ft_printf(OK);
 	else
 		ft_printf(KO);
-	return (free_stacks(sd), 0);
+	return (free_sd(sd), 0);
 }
 
 /**
@@ -123,4 +123,3 @@ static int	read_command(t_sd *sd)
 	}
 	return (1);
 }
-

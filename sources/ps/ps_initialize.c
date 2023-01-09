@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_initialize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
+/*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:18:28 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/06 22:47:03 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/09 10:39:56 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ t_sd	*initialize_ps(int argc, char **argv)
 	sd->sorted_bottom = nmbrs[0];
 	sd->print_command = 1;
 	if (!define_chunks(sd, nmbrs))
-		return (ft_putstr_fd(MEM_ERR, 2), \
-		stack_del(sd->a), free(sd), free(nmbrs), NULL);
+		return (ft_putstr_fd(MEM_ERR, 2), free_sd(sd), free(nmbrs), NULL);
 	return (free(nmbrs), sd);
 }
 

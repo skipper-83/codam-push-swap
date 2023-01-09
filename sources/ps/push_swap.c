@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
+/*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:53:52 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/06 22:35:49 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/09 10:40:51 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int	main(int argc, char **argv)
 	if (sd == NULL)
 		return (1);
 	if (stack_sorted(sd->a))
-		return (stack_del(sd->a), free(sd->chunks), free(sd), 0);
+		return (free(sd->chunks), free_sd(sd), 0);
 	if (select_operation(sd) == 1)
-		return (stack_del(sd->a), free(sd->chunks), free(sd), 0);
-	return (stack_del(sd->a), free(sd->chunks), free(sd), 0);
+		return (free(sd->chunks), free_sd(sd), 0);
+	return (free(sd->chunks), free_sd(sd), 0);
 }
 
 /**
@@ -50,13 +50,13 @@ static int	select_operation(t_sd *sd)
 	else
 	{
 		if (!push_chunks(sd))
-			return (ft_putstr_fd(MEM_ERR, 2), free(sd), 1);
+			return (ft_putstr_fd(MEM_ERR, 2), free_sd(sd), 1);
 		if (!stack_sorted(sd->a))
 			sort_three(sd);
 		while (sd->sorted_size < sd->length)
 		{
 			if (!push_three(sd))
-				return (ft_putstr_fd(MEM_ERR, 2), free(sd), 1);
+				return (ft_putstr_fd(MEM_ERR, 2), free_sd(sd), 1);
 		}
 	}
 	return (0);

@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   printers.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
+/*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:36:52 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/06 22:54:17 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/09 10:37:17 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
+
+void	free_sd(t_sd *sd)
+{
+	if (sd->a != NULL)
+		stack_del(sd->a);
+	if (sd->b != NULL)
+		stack_del(sd->b);
+	free (sd);
+}
 
 /**
  * @brief Print stacks a and b. For debugging only

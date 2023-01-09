@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shared.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
+/*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:51:30 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/06 22:55:34 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/09 10:38:47 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int			stack_sorted(t_stack *stack);
 //
 // PRINT FUNCTIONS
 
+void		free_sd(t_sd *sd);
 void		print_stacks(t_sd *sd);
 void		print_stack(t_stack *head);
 
