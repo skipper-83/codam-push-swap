@@ -5,7 +5,7 @@ CHECKER_OBJ_DIR		=	objects/checker
 SHARED_SRC_DIR		=	sources/shared
 SHARED_OBJ_DIR		=	objects/shared
 GENERATOR_SRC_DIR	=	sources/generator
-GENERATOR_OBJ_DIR	=	sources/generator
+GENERATOR_OBJ_DIR	=	objects/generator
 INCLUDE_DIR			=	headers
 
 PUSH_SWAP_SRCS		=	$(wildcard $(PUSH_SWAP_SRC_DIR)/*.c)
