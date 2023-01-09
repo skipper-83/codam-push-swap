@@ -65,6 +65,7 @@ $(NAME)				: $(SHARED_OBJS) $(PUSH_SWAP_OBJS)  $(LIB)
 					@$(CC) $(CFLAGS) $(PUSH_SWAP_OBJS) $(SHARED_OBJS) $(LIB) -o $(NAME)
 					@echo "\033[1mdone.\n\033[0m"
 
+bonus				: checker
 
 $(CHECKER)			: $(SHARED_OBJS) $(CHECKER_OBJS) $(LIB)
 					@echo "\nCompiling $(CHECKER)...   "
@@ -100,4 +101,4 @@ $(GENERATOR_OBJ_DIR)/%.o: $(GENERATOR_SRC_DIR)/%.c
 					@mkdir -p $(GENERATOR_OBJ_DIR)
 					@$(CC) $(CFLAGS) -c -o $@ $<
 
-.PHONY				: all clean fclean re run check
+.PHONY				: all clean fclean re run check bonus
