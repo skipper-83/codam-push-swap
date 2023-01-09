@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_functions2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
+/*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 00:25:21 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/06 22:54:25 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/09 11:22:00 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	ra(t_sd *sd)
 		ft_printf("ra\n");
 	if (sd->a != NULL)
 		stack_rotate(&sd->a, NORMAL);
+	if (sd->verbose)
+		print_stacks(sd);
 	return (1);
 }
 
@@ -37,6 +39,8 @@ int	rb(t_sd *sd)
 		ft_printf("rb\n");
 	if (sd->b != NULL)
 		stack_rotate(&sd->b, NORMAL);
+	if (sd->verbose)
+		print_stacks(sd);
 	return (1);
 }
 
@@ -53,5 +57,7 @@ int	rr(t_sd *sd)
 		stack_rotate(&sd->a, NORMAL);
 	if (sd->b != NULL)
 		stack_rotate(&sd->b, NORMAL);
+	if (sd->verbose)
+		print_stacks(sd);
 	return (1);
 }

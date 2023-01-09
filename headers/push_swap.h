@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
+/*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:17:10 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/06 22:56:00 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/09 11:01:56 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@
 # define BOTTOM_S 1
 # define TOP_R 2
 # define BOTTOM_R 3
-
 
 typedef struct s_top_three
 {

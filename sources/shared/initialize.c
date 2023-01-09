@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
+/*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:34:25 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/06 23:04:37 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/09 11:24:23 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	*init_numbers_array(int argc, char **argv)
 	int	length;
 
 	length = argc - 1;
+	if (!ft_strncmp(argv[1], "-v", 2))
+		length--;
 	nmbrs = argv_to_int(argv, argc);
 	if (nmbrs == NULL)
 		return (NULL);
@@ -73,17 +75,21 @@ static int	*argv_to_int(char **argv, int argc)
 	int		i;
 	long	number;
 	int		*res;
+	int		offset;
 
 	i = 1;
+	offset = 0;
+	if (!ft_strncmp(argv[1], "-v", 2))
+		offset = 1;
 	number = 0;
-	res = malloc(sizeof(int) * argc - 1);
+	res = malloc(sizeof(int) * argc - (1 + offset));
 	if (res == NULL)
 		return (ft_putstr_fd(MEM_ERR, 2), free(res), NULL);
-	while (i < argc)
+	while (i + offset < argc)
 	{
-		if (!check_all_nmbrs(argv[i]))
+		if (!check_all_nmbrs(argv[i + offset]))
 			return (ft_putstr_fd(INPUT_ERR, 2), free(res), NULL);
-		number = ft_atoli(argv[i]);
+		number = ft_atoli(argv[i + offset]);
 		if (number > INT_MAX || number < INT_MIN)
 			return (ft_putstr_fd(INPUT_ERR, 2), free(res), NULL);
 		res[i - 1] = number;

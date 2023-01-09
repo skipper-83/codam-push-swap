@@ -6,7 +6,7 @@
 /*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 00:20:58 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/09 10:53:13 by avan-and         ###   ########.fr       */
+/*   Updated: 2023/01/09 11:26:01 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	sa(t_sd *sd)
 		ft_printf("sa\n");
 	if (sd->a != NULL)
 		stack_swap(sd->a);
+	if (sd->verbose)
+		print_stacks(sd);
 	return (1);
 }
 
@@ -37,6 +39,8 @@ int	sb(t_sd *sd)
 		ft_printf("sb\n");
 	if (sd->b != NULL)
 		stack_swap(sd->b);
+	if (sd->verbose)
+		print_stacks(sd);
 	return (1);
 }
 
@@ -53,6 +57,8 @@ int	ss(t_sd *sd)
 		stack_swap(sd->a);
 	if (sd->b != NULL)
 		stack_swap(sd->b);
+	if (sd->verbose)
+		print_stacks(sd);
 	return (1);
 }
 
@@ -70,6 +76,8 @@ int	pa(t_sd *sd)
 	if (!stack_add_front(&sd->a, sd->b->nbr))
 		return (0);
 	stack_del_one(&sd->b, sd->b);
+	if (sd->verbose)
+		print_stacks(sd);
 	return (1);
 }
 
@@ -87,5 +95,7 @@ int	pb(t_sd *sd)
 	if (!stack_add_front(&sd->b, sd->a->nbr))
 		return (0);
 	stack_del_one(&sd->a, sd->a);
+	if (sd->verbose)
+		print_stacks(sd);
 	return (1);
 }

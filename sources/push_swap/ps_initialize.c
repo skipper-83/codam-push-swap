@@ -6,7 +6,7 @@
 /*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:18:28 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/09 10:39:56 by avan-and         ###   ########.fr       */
+/*   Updated: 2023/01/09 11:09:20 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,14 @@ t_sd	*initialize_ps(int argc, char **argv)
 	nmbrs = init_numbers_array(argc, argv);
 	if (nmbrs == NULL)
 		return (NULL);
+	if (!ft_strncmp(argv[1], "-v", 2))
+		length--;
 	sd = init_sd(nmbrs, length);
 	if (sd == NULL)
 		return (NULL);
 	nmbrs = bubble_sort(nmbrs, length);
+	if (!ft_strncmp(argv[1], "-v", 2))
+		sd->verbose = 1;
 	sd->sorted_bottom = nmbrs[0];
 	sd->print_command = 1;
 	if (!define_chunks(sd, nmbrs))
