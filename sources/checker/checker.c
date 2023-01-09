@@ -6,7 +6,7 @@
 /*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 21:22:19 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/09 10:42:13 by avan-and         ###   ########.fr       */
+/*   Updated: 2023/01/09 12:08:18 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (1);
+	if (!ft_strncmp(argv[1], "-v", 2))
+		return (ft_putstr_fd(INPUT_ERR, 2), 1);
 	sd = init_checker(argc, argv);
 	if (sd == NULL)
 		return (1);
