@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_functions1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
+/*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 00:20:58 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/06 22:54:21 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/09 10:53:13 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

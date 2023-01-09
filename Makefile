@@ -1,5 +1,5 @@
-PUSH_SWAP_SRC_DIR	=	sources/ps
-PUSH_SWAP_OBJ_DIR	=	objects/ps
+PUSH_SWAP_SRC_DIR	=	sources/push_swap
+PUSH_SWAP_OBJ_DIR	=	objects/push_swap
 CHECKER_SRC_DIR		=	sources/checker
 CHECKER_OBJ_DIR		=	objects/checker
 SHARED_SRC_DIR		=	sources/shared
@@ -36,9 +36,7 @@ all					: $(NAME)
 clean				:
 					@echo "\033[1mCleaning\033[0m"
 					@$(MAKE) -C $(LIBDIR) clean
-					@$(RM) $(PUSH_SWAP_OBJS)
-					@$(RM) $(GENERATOR_OBJS)
-					@$(RM) $(SHARED_OBJS)
+					@$(RM) -r objects
 					@echo "\033[1mDone\033[0m"
 
 fclean				: clean

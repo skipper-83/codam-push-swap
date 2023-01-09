@@ -6,7 +6,7 @@
 /*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:51:30 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/09 10:38:47 by avan-and         ###   ########.fr       */
+/*   Updated: 2023/01/09 10:56:14 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_stacks_data
 	int		sorted_size;
 	int		sorted_bottom;
 	int		print_command;
+	int		verbose;
 }	t_sd;
 
 //
@@ -81,12 +82,14 @@ int			pb(t_sd *sd);
 
 //
 // SORT FUNCTIONS 2
+
 int			ra(t_sd *sd);
 int			rb(t_sd *sd);
 int			rr(t_sd *sd);
 
 //
 // SORT FUNCTIONS 3
+
 int			rra(t_sd *sd);
 int			rrb(t_sd *sd);
 int			rrr(t_sd *sd);	
