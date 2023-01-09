@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_positions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
+/*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:38:35 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/04 22:40:22 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/09 11:46:39 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

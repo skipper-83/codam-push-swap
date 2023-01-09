@@ -6,7 +6,7 @@
 /*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:53:52 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/09 10:40:51 by avan-and         ###   ########.fr       */
+/*   Updated: 2023/01/09 11:49:41 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static int	select_operation(t_sd *sd)
 			return (ft_putstr_fd(MEM_ERR, 2), free_sd(sd), 1);
 		if (!stack_sorted(sd->a))
 			sort_three(sd);
+		sd->sorted_size += 3;
 		while (sd->sorted_size < sd->length)
 		{
 			if (!push_three(sd))

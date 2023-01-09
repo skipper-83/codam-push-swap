@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_operations.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertvanandel <albertvanandel@student.    +#+  +:+       +#+        */
+/*   By: avan-and <avan-and@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:59:49 by albertvanan       #+#    #+#             */
-/*   Updated: 2023/01/06 22:33:47 by albertvanan      ###   ########.fr       */
+/*   Updated: 2023/01/09 11:46:20 by avan-and         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
